@@ -28,6 +28,7 @@ public class AI {
 		Utill.writeFileWithVector(words);
 	}
 	
+	
 	public static void addInfo(String word) throws IOException {
 		words.add(word);
 		
@@ -35,9 +36,22 @@ public class AI {
 	}
 	
 	
+	public static void delInfo(String word) {
+		int idx = words.indexOf(word);
+		
+		if (words.indexOf(word) != -1) {
+			words.remove(idx);
+			System.out.println("Remove");
+		} 
+		else {
+			System.out.println("Fail");
+		}
+	}
 	
 	
 	public static float learnin(String word) throws IOException {
+		
+		word = Utill.splitKorean(word);
 		
 		float maxPer = -1f;
 		
@@ -46,10 +60,12 @@ public class AI {
 			float point = 0f;
 			
 			for(int i = 0; i < words.get(cnt).length(); ++i) {
+				String target = Utill.splitKorean(words.get(cnt));
+				
 				for(int j = 0; j < word.length(); ++j) {
-					if((word.charAt(j) == words.get(cnt).charAt(i)) || 
-							(bigChar(word.charAt(j)) == words.get(cnt).charAt(i)) ||
-							(smallChar(word.charAt(j)) == words.get(cnt).charAt(i))) {
+					if((word.charAt(j) == target.charAt(i)) || 
+							(Utill.bigChar(word.charAt(j)) == target.charAt(i)) ||
+							(Utill.smallChar(word.charAt(j)) == target.charAt(i))) {
 						
 						
 						++point;
@@ -68,34 +84,5 @@ public class AI {
 		}
 		
 		return maxPer;
-	}
-	
-	
-	
-	
-	
-	
-	private static char bigChar(char c) {
-		int t = (int)c;
-		
-		t -= 32;
-		
-		if(t < 0) {
-			t = 0;
-		}
-		
-		return (char)t;
-	}
-	
-	private static char smallChar(char c) {
-		int t = (int)c;
-		
-		t += 32;
-		
-		if(t > 127) {
-			t = 0;
-		}
-		
-		return (char)t;
 	}
 }
