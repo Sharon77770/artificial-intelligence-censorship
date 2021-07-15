@@ -68,24 +68,14 @@ public class Main {
 					
 					if (AI.words.indexOf(str) != -1) {
 						System.out.println("Find:" + str);
-					} 
-					else {
+					} else {
 						System.out.println("Fail");
 					}
 				}
 			}
-			
-			else if(mode.equals("del")) {
-				System.out.print("del>");
-				
-				String str = scan.nextLine();
-				
-				if(str.equals("."))
-					break;
-			}
-			
+
 			else if(mode.equals("help")) {
-				System.out.println("add:add info\nrun:run A.I\nlist:show list\nsize:show list size\nfind:find word in list\ndel:find info end remove it\n\n. to exit");
+				System.out.println("add:add info\nrun:run A.I\nlist:show list\nsize:show list size\nfind:find word in list\n\n. to exit");
 			}
 			
 			// exit
