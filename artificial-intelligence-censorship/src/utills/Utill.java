@@ -10,8 +10,10 @@ import java.util.Vector;
 
 public class Utill {
 	
+	//파일 경로
 	public static final String fileRoute = "AI_Info.txt";
 
+	//정보 저장
 	public static void writeFileWithVector(Vector<String> v) throws IOException {
 		
 		FileWriter file = new FileWriter(fileRoute, false);
@@ -24,7 +26,7 @@ public class Utill {
 	}
 
 	
-	
+	//정보 불러오기
 	public static Vector<String> loadLastInfo() throws IOException {
 		
         BufferedReader br = new BufferedReader(new FileReader(fileRoute));
@@ -45,6 +47,8 @@ public class Utill {
 		return v;
 	}
 	
+	
+	//리스트 출력
 	public static void showAll(Vector<String> v) {
 		Object[] arr = v.toArray();
 		
