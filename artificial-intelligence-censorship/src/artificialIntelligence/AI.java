@@ -130,8 +130,6 @@ public class AI {
  *
  *
  */
-	
-	// ¹ÞÀº ´Ü¾î ¿å È®·ü ±¸º°
 	public static void learning() throws IOException {
 		Scanner scan = new Scanner(System.in);
 		
@@ -144,17 +142,17 @@ public class AI {
 			
 			float maxPer = Utill.getMaxPer(words, word, BadFile);
 			float notBadmaxPer = Utill.getMaxPer(notBad, word, NotBadFile);
-
+			
+			System.out.println(maxPer * 100 + "%Bad");
+			System.out.println(notBadmaxPer * 100 + "%NotBad");
+			
 			if(maxPer > notBadmaxPer) {
-				System.out.println(maxPer * 100 + "%Bad");
+				
 				
 				if (maxPer > 0.6f) {
 					if (maxPer != 1f)
 						addInfo(word);
 				}
-			}
-			else {
-				System.out.println(notBadmaxPer * 100 + "%NotBad");
 			}
 		}
 	}

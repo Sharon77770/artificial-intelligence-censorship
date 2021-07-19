@@ -261,7 +261,7 @@ public class Utill {
 				for (int j = 0; j < word.length(); ++j) {
 
 					// 대소문자 상관없이 일치하면 추가
-					if (Utill.Equal(targetWord, i, targetWord, j)) {
+					if (Utill.Equal(targetWord, i, word, j)) {
 						++point;
 						break;
 					}

@@ -23,7 +23,6 @@ public class Main {
 			
 			
 			
-			
 			switch (mode) {
 			case "add":
 				AI.addInfo();
