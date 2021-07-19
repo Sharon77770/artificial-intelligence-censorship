@@ -21,6 +21,9 @@ size:show list size
 
 find:find word in list . to exit
 
+del:Clears information from the list. 
+The erased information is used to distinguish whether it is a swear word or a real word, so use it carefully . to exit
+
 
 . to exit program
 
@@ -37,6 +40,8 @@ list:학습한 데이터들을 보여줍니다
 size:학습한 데이터의 크기를 보여줍니다
 
 find:리스트에서 단어를 찾습니다 . 을 입력하여 find모드 종료
+
+del:리스트에서 정보를 지웁니다. 지운 정보는 욕의 변형인지 실존 하는 단어인지 구별하는데 사용하므로 신중하게 사용하십시오 . 을 입력하여 del모드 종료
 
 
 . 을 입력하여 프로그램 종료
