@@ -3,17 +3,15 @@ package main;
 import java.io.IOException;
 import java.util.Scanner;
 
-import artificialIntelligence.AI;
+import artificialIntelligence.BadWordsChecker;
 import utills.Utill;
 
 public class Main {
 
 	public static void main(String[] args) throws IOException {
-		//입력 받을 때 사용하는 객체
 		Scanner scan = new Scanner(System.in);
-		//학습정보 불러오기
-		AI.words = Utill.loadLastInfo(AI.BadFile);
-		AI.notBad = Utill.loadLastInfo(AI.NotBadFile);
+		
+		BadWordsChecker bwc = new BadWordsChecker("AI_Info.txt");
 		
 		exitPoint:
 		while (true) {
@@ -25,27 +23,31 @@ public class Main {
 			
 			switch (mode) {
 			case "add":
-				AI.addInfo();
+				System.out.print("add>");
+				bwc.addInfo(scan.nextLine());
 				break;
 
 			case "run":
-				AI.learning();
+				System.out.print("run>");
+				bwc.learning(scan.nextLine());
 				break;
 				
 			case "list":
-				Utill.showAll(AI.words);
+				Utill.showAll(bwc.getWordsVector());
 				break;
 				
 			case "size":
-				System.out.println("ListSize:" + AI.words.size());
+				System.out.println("ListSize:" + bwc.getDataSize());
 				break;
 				
 			case "find":
-				AI.find();
+				System.out.print("find>");
+				bwc.find(scan.nextLine());
 				break;
 				
 			case "del":
-				AI.delInfo();
+				System.out.print("del>");
+				bwc.delInfo(scan.nextLine());
 				break;
 				
 			case ".":
@@ -57,5 +59,7 @@ public class Main {
 				break;
 			}
 		}
+		
+		scan.close();
 	}
 }
